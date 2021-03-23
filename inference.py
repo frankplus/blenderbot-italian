@@ -34,6 +34,7 @@ def preprocess_sentence(sentence):
 
 def postprocess_sentence(sentence):
     # remove space before punctuation
+    sentence = sentence.replace('__unk__', '')
     sentence = sentence.rstrip(" .")
     return re.sub(r"\s+(\W)", r"\1", sentence)
 

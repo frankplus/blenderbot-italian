@@ -31,7 +31,8 @@ def getreply():
     if not context_id:
         context_id = generate_context_id()
 
-    if context_id not in contexts:
+    new_context = request.args.get('new_context', False)
+    if context_id not in contexts or new_context:
         contexts[context_id] = list()
         
     contexts[context_id].extend(text.split('\n'))
