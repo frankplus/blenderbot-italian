@@ -2,6 +2,9 @@ from flask import Flask, request
 import secrets
 import string
 import inference
+import logging
+
+logging.basicConfig(filename='log.txt', level=logging.INFO)
 
 CONVERSATION_TURNS = 5
 
@@ -25,7 +28,7 @@ def getreply():
 
     text = request.args.get('input')
     if text:
-        print(f"Input: {text}")
+        logging.info(f"Input: {text}")
 
     context_id = request.args.get('context')
     if not context_id:
@@ -41,7 +44,7 @@ def getreply():
 
     # elaborate response
     answer, score = inference.infer_from_history(contexts[context_id])
-    print(f"Score: {score} Answer: {answer}")
+    logging.info(f"Score: {score} Answer: {answer}")
     contexts[context_id].append(answer)
 
     return {
