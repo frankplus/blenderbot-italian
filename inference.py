@@ -13,9 +13,9 @@ opt = Opt(
         'beam_block_ngram' : 3,
         'inference' : 'topk',
         'topk' : 40,
-        'beam_size' : 20,
+        'beam_size' : 10,
         'beam_min_length' : 10,
-        'temperature' : 0.88
+        'temperature' : 1.0
     }
 )
 
