@@ -3,7 +3,7 @@ from parlai.core.opt import Opt
 import re
 
 opt = Opt(
-    model_file = 'model',
+    model_file = 'bugbyte.checkpoint',
     interactive_task = True,
     task = 'interactive',
     interactive_mode=True,
